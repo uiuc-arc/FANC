@@ -1,0 +1,10 @@
+numpy
+tensorflow
+onnx==1.5.0
+pycddlib
+tqdm
+onnxruntime
+torch
+torchvision
+mpmath
+pillow>=8.1.0 # not directly required, pinned by Snyk to avoid a vulnerability

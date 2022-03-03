@@ -1,0 +1,59 @@
+# Values of each template width and length is set to the size of image in each case. 
+# This ablation study is to show the effectiveness of the algorithm 2 from the paper.
+
+fcnn7:
+  network: nets/fcnn7.onnx
+  dataset: mnist
+  strategy:
+      - type: 3
+        layer: [2, 3]
+  template:
+    length: 28
+    width: 28
+  least_count: 0.005
+  template_search: 'bs'
+  lc1: 0.25
+  lc: 0.5
+
+fconv4:
+  network: nets/fconv4.onnx
+  dataset: mnist
+  strategy:
+      - type: 3
+        layer: [3, 4]
+  template:
+    length: 28
+    width: 28
+  least_count: 0.005
+  template_search: 'ms'
+  lc1: 0.25
+  lc: 0.25
+
+fcnn7_cifar:
+  network: nets/fcnn7_cifar.onnx
+  dataset: cifar10
+  strategy:
+      - type: 3
+        layer: [2, 4]
+  template:
+    length: 32
+    width: 32
+  least_count: 0.005
+  template_search: 'ms'
+  lc1: 0.25
+  lc: 0.5
+
+fconv4_cifar:
+  network: nets/fconv4_cifar.onnx
+  anetwork: nets/fconv4_cifar_quant8.onnx
+  dataset: cifar10
+  strategy:
+      - type: 2
+        layer: [2, 4]
+  template:
+    length: 32
+    width: 32
+  least_count: 0.005
+  template_search: 'ms'
+  lc1: 0.25
+  lc: 0.5
