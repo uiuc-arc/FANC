@@ -330,7 +330,7 @@ def get_bright_spec_set(image, delta, dataset, log_splits):
                     specUB[i * length + j] = 1
                     dif_ind_pairs.append((1-image[i * length + j], i * length + j))
 
-        logging.info('Pixels brightned:', len(dif_ind_pairs))
+        logging.info('Pixels brightned: %s', len(dif_ind_pairs))
         dif_ind_pairs = sorted(dif_ind_pairs, key=lambda x: x[0], reverse=True)[:log_splits]
 
         i = 0
@@ -431,10 +431,10 @@ import os
 def get_rotation_spec_set(imn, dataset):
 
     if dataset == 'mnist':
-        specs_file = os.path.join('/home/sugare2/UIUC/deepg/code/examples/pt', '{}.csv'.format(imn))
+        specs_file = os.path.join('../data/rotation', '{}.csv'.format(imn))
         dim = 784
     else:
-        specs_file = os.path.join('/home/sugare2/UIUC/deepg/code/examples/pt_cifar', '{}.csv'.format(imn))
+        assert False, "Does not work!"
         dim = 3072
 
     num_params = 1

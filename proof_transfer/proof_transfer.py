@@ -63,6 +63,7 @@ def approx_transfer(run_config):
     for strategy in strategies:
         if 'tot_time' not in strategy:
             strategy['tot_time'] = 0
+            strategy['match'] = 0
 
         while True:
             imn = random.randint(1, 99)
@@ -115,6 +116,8 @@ def approx_transfer(run_config):
                     approx_model, specLBs, specUBs, label, strategy['templates'], image_start, dataset, lc1 = run_config['lc1'], lc = run_config['lc'], adjust = (strategy['type'] == 3 or strategy['type'] == 4))
                 logging.info('%s %s %s', time3, count31, count32)
                 strategy['tot_time'] += time3
+                total = len(specLBs)
+                strategy['match'] += (total-count32)/total
             
             logging.info('\n\n')
     
