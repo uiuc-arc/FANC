@@ -55,3 +55,6 @@ lc: 0.25
 ```
 
 
+FANC-Torch
+--------------------
+An independent PyTorch based FANC implementation is provided in `fanc-torch` directory and is documented in [fanc-torch/README.md](fanc-torch/README.md).
